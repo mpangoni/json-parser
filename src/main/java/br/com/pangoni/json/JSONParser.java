@@ -29,7 +29,7 @@ public class JSONParser {
             case '}':
             case ']':
             case ',':
-                if (endStringLiteral > 0) {
+                if (isStringLiteral && endStringLiteral > 0) {
                     callback.handleValue(
                             String.valueOf(array, startSringLiteral, endStringLiteral - startSringLiteral));
                     startSringLiteral = endStringLiteral = 0;
